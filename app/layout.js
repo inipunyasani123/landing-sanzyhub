@@ -5,10 +5,10 @@ import "./globals.css";
 const figtree = Figtree({ variable: "--font-figtree", subsets: ["latin"], weight: ["600", "700", "800"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
-const __jsonld = {"@context":"https://schema.org","@type":"Organization","name":"SanzyHub","description":"Toko template landing page Next.js","url":"https://landing-sanzyhub.vercel.app"};
+const __jsonld = {"@context":"https://schema.org","@type":"Organization","name":"SanzyHub","description":"Toko template landing page Next.js","url":"https://landing-sanzyhub.pintuweb.id"};
 
 export const metadata = {
-  metadataBase: new URL("https://landing-sanzyhub.vercel.app"),
+  metadataBase: new URL("https://landing-sanzyhub.pintuweb.id"),
   title: { default: "SanzyHub — Template Landing Page Next.js yang Lebih dari Satu Halaman", template: "%s — SanzyHub" },
   description: "Lima belas template landing page Next.js dengan halaman dalam, formulir dan kalkulator yang bisa dicoba, dan isi di satu berkas data. Semua demo live; lisensi sekali bayar per usaha.",
   applicationName: "SanzyHub",
@@ -16,11 +16,11 @@ export const metadata = {
   authors: [{ name: "SanzyHub" }],
   creator: "SanzyHub",
   publisher: "SanzyHub",
-  alternates: { canonical: "https://landing-sanzyhub.vercel.app" },
+  alternates: { canonical: "https://landing-sanzyhub.pintuweb.id" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://landing-sanzyhub.vercel.app",
+    url: "https://landing-sanzyhub.pintuweb.id",
     siteName: "SanzyHub",
     title: { default: "SanzyHub — Template Landing Page Next.js yang Lebih dari Satu Halaman", template: "%s — SanzyHub" },
     description: "Lima belas template landing page Next.js dengan halaman dalam, formulir dan kalkulator yang bisa dicoba, dan isi di satu berkas data. Semua demo live; lisensi sekali bayar per usaha.",

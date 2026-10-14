@@ -2,7 +2,7 @@
 
 Lima belas template landing page Next.js dengan halaman dalam, formulir dan kalkulator yang bisa dicoba, dan isi di satu berkas data. Semua demo live; lisensi sekali bayar per usaha.
 
-**Demo live:** https://landing-sanzyhub.vercel.app
+**Demo live:** https://landing-sanzyhub.pintuweb.id
 
 ![Tangkapan layar SanzyHub](public/og.jpg)
 

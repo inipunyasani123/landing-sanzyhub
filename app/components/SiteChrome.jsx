@@ -45,7 +45,7 @@ export function SiteFooter() {
           </ul>
         </nav>
       </div>
-      <p className="panel-label mx-auto max-w-6xl border-t border-white/15 py-6 leading-[1.9] text-white/65">© 2026 SanzyHub · Toko fiktif; harga lisensi adalah contoh purwarupa desain. Demo template live di vercel.app.</p>
+      <p className="panel-label mx-auto max-w-6xl border-t border-white/15 py-6 leading-[1.9] text-white/65">© 2026 SanzyHub · Toko fiktif; harga lisensi adalah contoh purwarupa desain. Demo template live di pintuweb.id.</p>
     </footer>
   );
 }
