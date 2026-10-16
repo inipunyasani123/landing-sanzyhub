@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { KATEGORI, LISENSI, SITE, TEMPLATE, rp, templateBySlug } from '@/lib/template';
+import { KATEGORI, LISENSI, SITE, TEMPLATE, kecilAwal, rp, templateBySlug } from '@/lib/template';
 
 export function generateStaticParams() {
   return TEMPLATE.map((t) => ({ slug: t.slug }));
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   if (!t) return {};
   return {
     title: `Template ${t.nama}`,
-    description: `${t.ringkas} ${t.rute.length} halaman, font ${t.font.join(' & ')}. Cocok untuk ${t.cocok.toLowerCase()}.`,
+    description: `${t.ringkas} Demo ${t.rute.length} halaman untuk ${kecilAwal(t.cocok)}.`,
     alternates: { canonical: `${SITE}/template/${t.slug}` },
   };
 }
@@ -27,8 +27,8 @@ export default async function DetailTemplate({ params }) {
   return (
     <main className="px-6 pt-28 pb-24">
       <div className="mx-auto max-w-6xl">
-        <nav aria-label="Remah roti" className="panel-label flex flex-wrap gap-2 text-steel">
-          <Link href="/#template" className="text-signal-up hover:text-indigo-deep">Katalog</Link>
+        <nav aria-label="Remah roti" className="panel-label flex flex-wrap items-center gap-2 text-steel">
+          <Link href="/#template" className="py-1.5 text-signal-up hover:text-indigo-deep">Katalog</Link>
           <span aria-hidden="true">/</span>
           <span>{KATEGORI[t.kategori]}</span>
         </nav>
@@ -38,7 +38,7 @@ export default async function DetailTemplate({ params }) {
             <p className="mt-4 max-w-2xl text-lg leading-relaxed">{t.ringkas}</p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-            <a href={t.demo} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center rounded-lg bg-indigo-deep px-6 py-3.5 font-semibold text-white hover:bg-signal-up">Buka demo live<span className="sr-only"> (tab baru)</span> ↗</a>
+            <a href={t.demo} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center gap-1.5 rounded-lg bg-indigo-deep px-6 py-3.5 font-semibold text-white hover:bg-signal-up">Buka demo live<span className="sr-only"> (tab baru)</span><span aria-hidden="true">↗</span></a>
             <Link href="/lisensi" className="inline-flex justify-center rounded-lg px-6 py-3.5 font-semibold text-indigo-deep ring-2 ring-indigo-deep hover:bg-indigo-deep hover:text-white">Mulai {rp(LISENSI[0].harga)}</Link>
           </div>
         </div>

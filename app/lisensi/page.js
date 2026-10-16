@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { BOLEH, LISENSI, SITE, rp } from '@/lib/template';
+import { BOLEH, SITE } from '@/lib/template';
+import TanggaLisensi from '../components/TanggaLisensi';
 
 export const metadata = {
   title: 'Lisensi & Harga',
-  description: 'Tiga lisensi template SanzyHub: pakai sendiri, disesuaikan, atau disesuaikan sekaligus dipasang dengan domain dan hosting setahun. Satu harga per usaha, tanpa langganan.',
+  description: 'Tiga lisensi template SanzyHub: pakai sendiri, disesuaikan, atau disesuaikan dan dipasang dengan domain serta hosting setahun. Bayar sekali per usaha.',
   alternates: { canonical: `${SITE}/lisensi` },
 };
 
@@ -15,35 +16,7 @@ export default function Lisensi() {
         <h1 className="mt-4 max-w-3xl text-[2.7rem] leading-[1.02] font-extrabold text-indigo-deep md:text-6xl">Bayar sekali per usaha</h1>
         <p className="mt-5 max-w-xl text-lg leading-relaxed">Setiap lisensi berlaku untuk satu usaha atau satu klien. Pembaruan keamanan Next.js untuk template yang sama gratis selama setahun.</p>
 
-        <div className="relative mt-12 overflow-x-auto rounded-2xl bg-white ring-1 ring-indigo-deep/8" tabIndex={0} role="region" aria-label="Tabel perbandingan lisensi">
-          <table className="w-full min-w-[44rem] border-collapse text-left">
-            <caption className="sr-only">Perbandingan tiga lisensi template SanzyHub</caption>
-            <thead>
-              <tr className="border-b border-indigo-deep/10">
-                <td className="p-6" />
-                {LISENSI.map((l) => (
-                  <th key={l.nama} scope="col" className={`p-6 align-top ${l.unggul ? 'bg-indigo-deep text-white' : 'text-indigo-deep'}`}>
-                    <span className="block text-lg font-bold">{l.nama}</span>
-                    <span className="metric mt-2 block text-3xl">{rp(l.harga)}</span>
-                    <span className={`mt-2 block text-sm font-normal leading-relaxed ${l.unggul ? 'text-white/75' : 'text-steel'}`}>{l.ket}</span>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {LISENSI[0].isi.map(([k], i) => (
-                <tr key={k} className="border-b border-indigo-deep/8 last:border-0">
-                  <th scope="row" className="p-5 text-sm font-semibold text-indigo-deep">{k}</th>
-                  {LISENSI.map((l) => (
-                    <td key={l.nama} className={`p-5 text-center ${l.unggul ? 'bg-indigo-deep/4' : ''}`}>
-                      {l.isi[i][1] ? <span className="font-bold text-signal-up">✓<span className="sr-only"> termasuk</span></span> : <span className="text-steel">—<span className="sr-only"> tidak termasuk</span></span>}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <div className="mt-12"><TanggaLisensi judul="h2" /></div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {BOLEH.map(([j, isi], i) => (

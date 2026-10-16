@@ -31,22 +31,24 @@ export default function Galeri() {
         </label>
       </div>
       <p role="status" className="panel-label mt-6">{tampil.length} template</p>
-      <ul className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Ponsel: baris ringkas (gambar kecil di kiri) supaya 15 template tidak memanjang belasan layar. */}
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         {tampil.map((t) => (
-          <li key={t.slug} className="flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-indigo-deep/8 transition-shadow hover:shadow-[0_20px_40px_-24px_rgb(27_31_59/0.5)]">
-            <Link href={`/template/${t.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-mist-2">
-              <Image src={t.foto} alt={`Tampilan layar pertama template ${t.nama}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px" className="object-cover object-top" />
+          <li key={t.slug} className="group relative flex gap-4 overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-indigo-deep/8 transition-shadow hover:shadow-[0_20px_40px_-24px_rgb(27_31_59/0.5)] sm:flex-col sm:gap-0 sm:p-0">
+            <Link href={`/template/${t.slug}`} tabIndex={-1} aria-hidden="true" className="relative block aspect-[16/10] w-32 shrink-0 self-start overflow-hidden rounded-lg bg-mist-2 sm:w-auto sm:self-auto sm:rounded-none">
+              <Image src={t.foto} alt="" fill sizes="(max-width: 640px) 128px, (max-width: 1024px) 50vw, 360px" className="object-cover object-top" />
             </Link>
-            <div className="flex flex-1 flex-col p-5">
+            <div className="flex min-w-0 flex-1 flex-col sm:p-5">
               <p className="flex items-center justify-between gap-3">
                 <span className="panel-label text-signal-up">{KATEGORI[t.kategori]}</span>
-                <span className="metric text-sm text-indigo-deep">{t.rute.length} halaman</span>
+                <span className="metric hidden shrink-0 text-sm text-indigo-deep sm:inline">{t.rute.length} halaman</span>
               </p>
-              <h3 className="mt-2 text-xl font-bold text-indigo-deep"><Link href={`/template/${t.slug}`} className="hover:text-signal-up">{t.nama}</Link></h3>
-              <p className="mt-2 text-sm leading-relaxed">{t.ringkas}</p>
-              <p className="mt-auto flex items-center justify-between gap-3 pt-5 text-sm">
-                <span className="text-steel">{t.font.join(' · ')}</span>
-                <a href={t.demo} target="_blank" rel="noopener noreferrer" className="shrink-0 font-semibold text-signal-up hover:text-indigo-deep">Demo<span className="sr-only"> {t.nama} (tab baru)</span> ↗</a>
+              <h3 className="mt-1 text-lg leading-tight font-bold text-indigo-deep sm:mt-2 sm:text-xl"><Link href={`/template/${t.slug}`} className="hover:text-signal-up">{t.nama}</Link></h3>
+              <p className="mt-1 line-clamp-2 text-sm leading-relaxed sm:mt-2 sm:line-clamp-none">{t.ringkas}</p>
+              <p className="mt-auto flex items-center justify-between gap-3 pt-2 text-sm sm:pt-5">
+                <span className="hidden text-steel sm:inline">{t.font.join(' · ')}</span>
+                <span className="metric text-indigo-deep sm:hidden">{t.rute.length} halaman</span>
+                <a href={t.demo} target="_blank" rel="noopener noreferrer" className="shrink-0 py-1 font-semibold text-signal-up hover:text-indigo-deep">Demo<span className="sr-only"> {t.nama} (tab baru)</span> ↗</a>
               </p>
             </div>
           </li>

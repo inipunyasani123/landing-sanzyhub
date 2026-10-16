@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FAQ as DAFTAR, KATEGORI, LISENSI, TEMPLATE, rp } from '@/lib/template';
 import Galeri from './Galeri';
+import TanggaLisensi from './TanggaLisensi';
 
 export function Hero() {
   const halaman = TEMPLATE.reduce((s, t) => s + t.rute.length, 0);
@@ -10,7 +11,7 @@ export function Hero() {
   const maks = Math.max(...perKat.map(([, v]) => v));
   const sorot = ['woodora', 'nimbus', 'tastycorner'].map((s) => TEMPLATE.find((t) => t.slug === s));
   return (
-    <section className="px-6 pt-28 pb-20 md:pt-36 md:pb-28">
+    <section className="px-6 pt-28 pb-16 md:pt-36 md:pb-28">
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div>
           <p className="panel-label text-signal-up">Template landing page Next.js</p>
@@ -59,7 +60,7 @@ export function Hero() {
 
 export function Katalog() {
   return (
-    <section id="template" className="scroll-mt-16 border-t border-indigo-deep/8 bg-mist-2/50 px-6 py-20 md:py-28">
+    <section id="template" className="scroll-mt-16 border-t border-indigo-deep/8 bg-mist-2/50 px-6 py-16 md:py-28">
       <div className="mx-auto max-w-6xl">
         <p className="panel-label text-signal-up">Katalog</p>
         <h2 className="mt-4 max-w-2xl text-[2.2rem] leading-[1.06] font-extrabold text-indigo-deep md:text-5xl">Coba demonya dulu, semuanya live</h2>
@@ -77,22 +78,22 @@ const CARA = [
 
 export function Cara() {
   return (
-    <section id="cara" className="scroll-mt-16 px-6 py-20 md:py-28">
+    <section id="cara" className="scroll-mt-16 px-6 py-16 md:py-28">
       <div className="mx-auto max-w-6xl">
         <p className="panel-label text-signal-up">Cara kerja</p>
         <h2 className="mt-4 max-w-2xl text-[2.2rem] leading-[1.06] font-extrabold text-indigo-deep md:text-5xl">Tiga langkah, satu berkas data</h2>
-        <ol className="mt-12 grid gap-6 md:grid-cols-3">
+        <ol className="mt-10 grid gap-4 md:mt-12 md:grid-cols-3 md:gap-6">
           {CARA.map(([j, d], i) => (
-            <li key={j} className="rounded-2xl bg-white p-7 ring-1 ring-indigo-deep/8">
-              <span className="metric text-5xl text-signal-up">{String(i + 1).padStart(2, '0')}</span>
+            <li key={j} className="rounded-2xl bg-white p-6 ring-1 ring-indigo-deep/8 md:p-7">
+              <span className="metric text-4xl text-signal-up md:text-5xl">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="mt-4 text-xl font-bold text-indigo-deep">{j}</h3>
               <p className="mt-2 leading-relaxed">{d}</p>
             </li>
           ))}
         </ol>
-        <figure className="mt-10 overflow-x-auto rounded-2xl bg-indigo-deep p-6 font-mono text-sm leading-relaxed text-white/85" tabIndex={0} role="region" aria-label="Contoh isi berkas data template">
-          <figcaption className="panel-label mb-4 font-sans text-white/60">Contoh: woodora/lib/kayu.js</figcaption>
-          <pre className="whitespace-pre"><code>{`export const KATALOG = [
+        <figure className="mt-10 rounded-2xl bg-indigo-deep p-6 font-mono text-sm leading-relaxed text-white/85">
+          <figcaption className="panel-label mb-4 font-sans text-white/70">Contoh: woodora/lib/kayu.js</figcaption>
+          <pre className="overflow-x-auto whitespace-pre" tabIndex={0} role="region" aria-label="Contoh isi berkas data template"><code>{`export const KATALOG = [
   { slug: 'meja-makan-semarang', nama: 'Meja Makan Semarang',
     p: 180, l: 90, t: 75, kayu: ['jati', 'mahoni'], mulai: 7900000 },
   // ganti nama, ukuran, dan harga — gambar kerja ikut berubah
@@ -112,17 +113,9 @@ export function LisensiRingkas() {
             <p className="panel-label text-[#9db3ff]">Lisensi</p>
             <h2 className="mt-4 max-w-2xl text-[2.2rem] leading-[1.06] font-extrabold text-white md:text-5xl">Satu harga per usaha, tanpa langganan</h2>
           </div>
-          <Link href="/lisensi" className="panel-label shrink-0 border-b-2 border-white pb-1 text-white">Bandingkan lisensi</Link>
+          <Link href="/lisensi" className="panel-label shrink-0 self-start border-b-2 border-white py-1 text-white hover:border-[#9db3ff] sm:self-auto">Syarat lisensi</Link>
         </div>
-        <ul className="mt-12 grid gap-5 md:grid-cols-3">
-          {LISENSI.map((l) => (
-            <li key={l.nama} className={`rounded-2xl p-7 ${l.unggul ? 'bg-white text-indigo-deep' : 'bg-white/6'}`}>
-              <h3 className={`text-xl font-bold ${l.unggul ? 'text-indigo-deep' : 'text-white'}`}>{l.nama}</h3>
-              <p className="metric mt-3 text-4xl">{rp(l.harga)}</p>
-              <p className={`mt-3 text-sm leading-relaxed ${l.unggul ? 'text-steel' : 'text-white/75'}`}>{l.ket}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-10 md:mt-12"><TanggaLisensi gelap /></div>
       </div>
     </section>
   );
@@ -130,7 +123,7 @@ export function LisensiRingkas() {
 
 export function FAQ() {
   return (
-    <section id="faq" className="scroll-mt-16 px-6 py-20 md:py-28">
+    <section id="faq" className="scroll-mt-16 px-6 py-16 md:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <div>
           <p className="panel-label text-signal-up">Pertanyaan</p>
