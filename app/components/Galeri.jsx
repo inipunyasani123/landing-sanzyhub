@@ -48,7 +48,7 @@ export default function Galeri() {
               <p className="mt-auto flex items-center justify-between gap-3 pt-2 text-sm sm:pt-5">
                 <span className="hidden text-steel sm:inline">{t.font.join(' · ')}</span>
                 <span className="metric text-indigo-deep sm:hidden">{t.rute.length} halaman</span>
-                <a href={t.demo} target="_blank" rel="noopener noreferrer" className="shrink-0 py-1 font-semibold text-signal-up hover:text-indigo-deep">Demo<span className="sr-only"> {t.nama} (tab baru)</span> ↗</a>
+                <a href={t.demo} target="_blank" rel="noopener noreferrer" className="shrink-0 py-1 font-semibold text-signal-up hover:text-indigo-deep">Buka<span className="sr-only"> {t.nama} (tab baru)</span> ↗</a>
               </p>
             </div>
           </li>

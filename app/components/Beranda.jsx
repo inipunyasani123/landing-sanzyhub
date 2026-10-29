@@ -63,7 +63,7 @@ export function Katalog() {
     <section id="template" className="scroll-mt-16 border-t border-indigo-deep/8 bg-mist-2/50 px-6 py-16 md:py-28">
       <div className="mx-auto max-w-6xl">
         <p className="panel-label text-signal-up">Katalog</p>
-        <h2 className="mt-4 max-w-2xl text-[2.2rem] leading-[1.06] font-extrabold text-indigo-deep md:text-5xl">Coba demonya dulu, semuanya live</h2>
+        <h2 className="mt-4 max-w-2xl text-[2.2rem] leading-[1.06] font-extrabold text-indigo-deep md:text-5xl">Semua templatenya live, silakan dicoba</h2>
         <Galeri />
       </div>
     </section>
