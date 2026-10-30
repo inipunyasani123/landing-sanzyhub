@@ -39,15 +39,15 @@ export function SiteFooter() {
         <nav aria-label="Template">
           <p className="panel-label mb-4 text-white/75">Template</p>
           <ul className="grid grid-cols-2 gap-x-4 text-sm text-white/75">
-            {TEMPLATE.slice(0, 8).map((t) => <li key={t.slug}><Link href={`/template/${t.slug}`} className="inline-block py-1.5 hover:text-white">{t.nama}</Link></li>)}
+            {TEMPLATE.slice(0, 8).map((t) => <li key={t.slug}><Link href={`/template/${t.slug}`} className="inline-flex min-h-11 items-center hover:text-white">{t.nama}</Link></li>)}
           </ul>
         </nav>
         <nav aria-label="Bantuan">
           <p className="panel-label mb-4 text-white/75">Bantuan</p>
           <ul className="text-sm text-white/75">
-            <li><Link href="/lisensi" className="inline-block py-1.5 hover:text-white">Lisensi & harga</Link></li>
-            <li><Link href="/#cara" className="inline-block py-1.5 hover:text-white">Cara kerja</Link></li>
-            <li><Link href="/#faq" className="inline-block py-1.5 hover:text-white">Pertanyaan umum</Link></li>
+            <li><Link href="/lisensi" className="inline-flex min-h-11 items-center hover:text-white">Lisensi & harga</Link></li>
+            <li><Link href="/#cara" className="inline-flex min-h-11 items-center hover:text-white">Cara kerja</Link></li>
+            <li><Link href="/#faq" className="inline-flex min-h-11 items-center hover:text-white">Pertanyaan umum</Link></li>
           </ul>
         </nav>
       </div>

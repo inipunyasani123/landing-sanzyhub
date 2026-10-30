@@ -28,7 +28,7 @@ export default async function DetailTemplate({ params }) {
     <main className="px-6 pt-28 pb-24">
       <div className="mx-auto max-w-6xl">
         <nav aria-label="Remah roti" className="panel-label flex flex-wrap items-center gap-2 text-steel">
-          <Link href="/#template" className="py-1.5 text-signal-up hover:text-indigo-deep">Katalog</Link>
+          <Link href="/#template" className="inline-flex min-h-11 items-center text-signal-up hover:text-indigo-deep">Katalog</Link>
           <span aria-hidden="true">/</span>
           <span>{KATEGORI[t.kategori]}</span>
         </nav>

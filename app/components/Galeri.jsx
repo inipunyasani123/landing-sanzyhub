@@ -11,7 +11,7 @@ export default function Galeri() {
   const [kat, setKat] = useState('semua');
   const [urut, setUrut] = useState('baru');
   const tampil = TEMPLATE.filter((t) => kat === 'semua' || t.kategori === kat).sort((a, b) => (urut === 'halaman' ? b.rute.length - a.rute.length : urut === 'nama' ? a.nama.localeCompare(b.nama) : 0));
-  const tombol = (aktif) => `rounded-lg px-3.5 py-2 text-sm font-semibold ${aktif ? 'bg-indigo-deep text-white' : 'bg-white text-indigo-deep ring-1 ring-indigo-deep/12 hover:ring-indigo-deep/40'}`;
+  const tombol = (aktif) => `inline-flex min-h-11 items-center rounded-lg px-3.5 py-2 text-sm font-semibold ${aktif ? 'bg-indigo-deep text-white' : 'bg-white text-indigo-deep ring-1 ring-indigo-deep/12 hover:ring-indigo-deep/40'}`;
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function Galeri() {
         </div>
         <label className="flex items-center gap-3 text-sm font-semibold text-indigo-deep">
           Urutkan
-          <select value={urut} onChange={(e) => setUrut(e.target.value)} className="rounded-lg border border-indigo-deep/15 bg-white px-3 py-2 focus:border-signal-up focus:outline-none">
+          <select value={urut} onChange={(e) => setUrut(e.target.value)} className="min-h-11 rounded-lg border border-indigo-deep/15 bg-white px-3 py-2 focus:border-signal-up focus:outline-none">
             {Object.entries(URUT).map(([k, n]) => <option key={k} value={k}>{n}</option>)}
           </select>
         </label>
@@ -43,12 +43,12 @@ export default function Galeri() {
                 <span className="panel-label text-signal-up">{KATEGORI[t.kategori]}</span>
                 <span className="metric hidden shrink-0 text-sm text-indigo-deep sm:inline">{t.rute.length} halaman</span>
               </p>
-              <h3 className="mt-1 text-lg leading-tight font-bold text-indigo-deep sm:mt-2 sm:text-xl"><Link href={`/template/${t.slug}`} className="hover:text-signal-up">{t.nama}</Link></h3>
-              <p className="mt-1 line-clamp-2 text-sm leading-relaxed sm:mt-2 sm:line-clamp-none">{t.ringkas}</p>
+              <h3 className="mt-1 text-lg leading-tight font-bold text-indigo-deep sm:mt-2 sm:text-xl"><Link href={`/template/${t.slug}`} className="inline-flex min-h-11 items-center hover:text-signal-up">{t.nama}</Link></h3>
+              <p className="mt-1 line-clamp-2 text-[0.9375rem] leading-relaxed sm:mt-2 sm:line-clamp-none">{t.ringkas}</p>
               <p className="mt-auto flex items-center justify-between gap-3 pt-2 text-sm sm:pt-5">
                 <span className="hidden text-steel sm:inline">{t.font.join(' · ')}</span>
                 <span className="metric text-indigo-deep sm:hidden">{t.rute.length} halaman</span>
-                <a href={t.demo} target="_blank" rel="noopener noreferrer" className="shrink-0 py-1 font-semibold text-signal-up hover:text-indigo-deep">Buka<span className="sr-only"> {t.nama} (tab baru)</span> ↗</a>
+                <a href={t.demo} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 shrink-0 items-center px-1 font-semibold text-signal-up hover:text-indigo-deep">Buka<span className="sr-only"> {t.nama} (tab baru)</span> ↗</a>
               </p>
             </div>
           </li>

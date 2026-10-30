@@ -113,7 +113,7 @@ export function LisensiRingkas() {
             <p className="panel-label text-[#9db3ff]">Lisensi</p>
             <h2 className="mt-4 max-w-2xl text-[2.2rem] leading-[1.06] font-extrabold text-white md:text-5xl">Satu harga per usaha, tanpa langganan</h2>
           </div>
-          <Link href="/lisensi" className="panel-label shrink-0 self-start border-b-2 border-white py-1 text-white hover:border-[#9db3ff] sm:self-auto">Syarat lisensi</Link>
+          <Link href="/lisensi" className="panel-label inline-flex min-h-11 shrink-0 items-center self-start border-b-2 border-white text-white hover:border-[#9db3ff] sm:self-auto">Syarat lisensi</Link>
         </div>
         <div className="mt-10 md:mt-12"><TanggaLisensi gelap /></div>
       </div>
